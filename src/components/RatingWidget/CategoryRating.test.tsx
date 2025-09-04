@@ -16,7 +16,7 @@ describe('CategoryRating', () => {
     { averageRating: 0, expected: 'UNRATED' },
   ];
 
-  it.each(cases)(
+  test.each(cases)(
     'displays $expected for averageRating $averageRating',
     ({ averageRating, expected }) => {
       render(<CategoryRating averageRating={averageRating} />);

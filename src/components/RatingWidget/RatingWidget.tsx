@@ -36,7 +36,7 @@ const Logo = styled.img`
 `;
 
 /**
- *Component to displays the overall rating and distribution of ratings.
+ *Component to displays the overall rating and distribution of ratings for a product.
  */
 export function ProductRatingWidget({
   averageRating,

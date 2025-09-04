@@ -62,6 +62,9 @@ const RatingCount = styled.p`
   padding: 0;
 `;
 
+/** Displays the distribution of ratings for each star.
+ * Shows a horizontal bar for each star rating with the count of ratings.
+ */
 export function RatingDistribution({
   ratingDistribution,
   totalRatings,

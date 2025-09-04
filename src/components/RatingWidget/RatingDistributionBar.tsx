@@ -28,6 +28,9 @@ const DistributionFill = styled.div<DistributionFillProps>`
   width: ${({ percentage }) => (percentage ? percentage : 0)}%;
 `;
 
+/**
+ * Component to display a horizontal bar representing the percentage of ratings for a given star.
+ */
 export function RatingDistributionBar({ percentage }: DistributionBarProps) {
   return (
     <DistributionBarContainer
