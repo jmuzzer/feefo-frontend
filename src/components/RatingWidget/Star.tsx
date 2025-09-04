@@ -1,15 +1,16 @@
 import styled from 'styled-components';
+import star from '../../assets/star.svg';
 
 interface StarProps {
   /** The rating value for the star from 0-1 which determines the fill level */
   rating: number;
 }
 
-const StarIcon = styled.div`
-  color: white;
-  font-size: 40px;
+const StarIcon = styled.img`
   z-index: 2;
   pointer-events: none;
+  width: 30px;
+  height: 30px;
 `;
 
 const BackgroundFill = styled.div<{ percentage: number }>`
@@ -42,13 +43,24 @@ const StyledStarWrapper = styled.div`
  * Displays a partially filled star based on the rating value.
  */
 export function Star({ rating }: StarProps) {
-  const percentage = rating * 100;
+  const percentage: number = parseFloat((rating * 100).toFixed(1));
+
+  const starLabel =
+    percentage === 100
+      ? 'Full Star rating'
+      : percentage === 0
+        ? 'Empty Star rating'
+        : 'Partial Star rating';
 
   return (
     <>
-      <StyledStarWrapper>
+      <StyledStarWrapper
+        aria-valuenow={percentage}
+        aria-valuemin={0}
+        aria-valuemax={100}
+      >
         <BackgroundFill percentage={percentage} />
-        <StarIcon>★</StarIcon>
+        <StarIcon src={star} alt="Star" aria-label={starLabel} />
       </StyledStarWrapper>
     </>
   );

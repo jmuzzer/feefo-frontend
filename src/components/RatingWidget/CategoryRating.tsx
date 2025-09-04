@@ -6,7 +6,9 @@ interface CategoryRatingProps {
   averageRating: number;
 }
 
-const StyledDescription = styled.div`
+const StyledDescription = styled.p`
+  margin: 0;
+  padding: 0;
   font-size: clamp(24px, 2vw, 30px);
   color: #000000ff;
   font-weight: 600;
@@ -30,5 +32,9 @@ export function CategoryRating({ averageRating }: CategoryRatingProps) {
     categoryRating = 'BAD';
   }
 
-  return <StyledDescription>{categoryRating}</StyledDescription>;
+  return (
+    <StyledDescription aria-label="Category rating">
+      {categoryRating}
+    </StyledDescription>
+  );
 }

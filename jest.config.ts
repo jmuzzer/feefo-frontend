@@ -8,7 +8,8 @@ const config: Config = {
   ],
   testEnvironment: 'jest-environment-jsdom',
   moduleNameMapper: {
-    '\\.(css|sass|scss)$': 'identity-obj-proxy',
+    '^.+.(css|svg|styl|less|sass|scss|png|jpg|ttf|woff|woff2)$':
+      'jest-transform-stub',
   },
   transform: {
     '^.+\\.(t|j)sx?$': '@swc/jest',

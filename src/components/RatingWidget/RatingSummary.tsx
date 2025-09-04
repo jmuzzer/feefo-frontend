@@ -14,6 +14,13 @@ const HorizontalCenterWrapper = styled.div`
   align-items: center;
 `;
 
+const StyledAverageRating = styled.p`
+  font-weight: 500;
+  color: '#717171ff';
+  margin: 0;
+  padding: 0;
+`;
+
 /**
  * Displays a summary of the rating based on the average rating value.
  */
@@ -22,9 +29,9 @@ export function RatingSummary({ averageRating }: RatingSummaryProps) {
     <HorizontalCenterWrapper>
       <CategoryRating averageRating={averageRating} />
       <FiveStarRating averageRating={averageRating} />
-      <div style={{ fontWeight: 500, color: '#717171ff' }}>
+      <StyledAverageRating aria-label="Average rating">
         {averageRating} OUT OF 5
-      </div>
+      </StyledAverageRating>
     </HorizontalCenterWrapper>
   );
 }

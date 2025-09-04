@@ -18,7 +18,7 @@ export function FiveStarRating({ averageRating }: FiveStarRatingProps) {
   const STAR_COUNT = 5;
 
   return (
-    <StarWrapper>
+    <StarWrapper aria-label="Rating out of 5 stars">
       {Array.from({ length: STAR_COUNT }).map((_, index) => {
         const remaining = averageRating - index;
         const starValue = remaining >= 1 ? 1 : remaining > 0 ? remaining : 0;

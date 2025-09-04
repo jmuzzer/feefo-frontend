@@ -4,10 +4,12 @@ import type { ProductRatingSummary } from '../../types/WidgetRating';
 import { RatingSummary } from './RatingSummary';
 import { RatingDistribution } from './RatingDistribution';
 
-const TextStyle = styled.div`
+const TextStyle = styled.p`
   font-size: clamp(16px, 2vw, 18px);
   color: #717171ff;
   font-weight: 600;
+  margin: 0;
+  padding: 0;
 `;
 
 const RatingWidgetWrapper = styled.div`
@@ -16,9 +18,9 @@ const RatingWidgetWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
-  height: clamp(350px, 50vh, 370px);
+  height: clamp(360px, 50vh, 370px);
   width: clamp(280px, 50vh, 300px);
-  padding: clamp(16px, 3vw, 32px);
+  padding: 30px 20px 10px 20px;
 `;
 
 const FeefoBranding = styled.div`
@@ -31,7 +33,6 @@ const FeefoBranding = styled.div`
 
 const Logo = styled.img`
   height: 40px;
-  alt: 'Feefo logo';
 `;
 
 /**
@@ -43,16 +44,13 @@ export function ProductRatingWidget({
   ratingDistribution,
 }: ProductRatingSummary) {
   return (
-    <RatingWidgetWrapper>
+    <RatingWidgetWrapper aria-label="Product rating widget">
       <RatingSummary averageRating={averageRating} />
       <FeefoBranding>
-        <TextStyle>Product Rating</TextStyle>
-        <Logo src={feefoLogo} />
+        <TextStyle aria-label="Product Rating">Product Rating</TextStyle>
+        <Logo src={feefoLogo} alt="Feefo logo" />
       </FeefoBranding>
-      <RatingDistribution
-        ratingDistribution={ratingDistribution}
-        totalRatings={totalRatings}
-      />
+      <RatingDistribution ratingDistribution={ratingDistribution} totalRatings={totalRatings} />
     </RatingWidgetWrapper>
   );
 }

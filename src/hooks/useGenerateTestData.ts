@@ -19,8 +19,9 @@ export function useGenerateTestData(): ProductRatingSummary {
     0,
   );
 
-  const averageRating: number =
-    Math.round((totalRatingsValue / totalRatings) * 10) / 10;
+  const averageRating: number = parseFloat(
+    (totalRatingsValue / totalRatings).toFixed(1),
+  );
 
   return {
     averageRating,
