@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import { ProductRatingWidget } from './RatingWidget';
-import type { ProductRatingSummary } from '../../types/WidgetRating';
+import type { ProductRatingSummary } from '../../types/ProductRatingSummary#';
 
 const mockProductRatingSummary: ProductRatingSummary = {
   averageRating: 4.5,

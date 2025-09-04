@@ -1,32 +1,43 @@
 import './App.css';
-import { createGlobalStyle } from 'styled-components';
+import styled from 'styled-components';
 import { ProductRatingWidget } from './components/RatingWidget/RatingWidget';
-import { useGenerateTestData } from './hooks/useGenerateTestData';
+import { Button } from './components/Button';
+import { useTestHooks } from './hooks/useAddRating';
 
-const GlobalStyle = createGlobalStyle`
-html,
-.poppins-regular {
-  font-family: "Poppins", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-}
+const SimpleButtonPanel = styled.div`
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+  align-content: center;
+`;
 
+const AppWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 `;
 
 function App() {
-  // Generate test data
-  const { averageRating, totalRatings, ratingDistribution } =
-    useGenerateTestData();
+  const { useAddRating, useGetData } = useTestHooks();
+
+  const { averageRating, totalRatings, ratingDistribution } = useGetData();
 
   return (
-    <>
-      <GlobalStyle />
+    <AppWrapper>
       <ProductRatingWidget
         averageRating={averageRating}
         totalRatings={totalRatings}
         ratingDistribution={ratingDistribution}
       />
-    </>
+      <SimpleButtonPanel>
+        <Button useStateFn={() => useAddRating({ star: 1 })} name={`Add 1 Star`} />
+        <Button useStateFn={() => useAddRating({ star: 2 })} name={`Add 2 Star`} />
+        <Button useStateFn={() => useAddRating({ star: 3 })} name={`Add 3 Star`} />
+        <Button useStateFn={() => useAddRating({ star: 4 })} name={`Add 4 Star`} />
+        <Button useStateFn={() => useAddRating({ star: 5 })} name={`Add 5 Star`} />
+      </SimpleButtonPanel>
+    </AppWrapper>
   );
 }
 

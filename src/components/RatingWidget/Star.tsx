@@ -54,11 +54,7 @@ export function Star({ rating }: StarProps) {
 
   return (
     <>
-      <StyledStarWrapper
-        aria-valuenow={percentage}
-        aria-valuemin={0}
-        aria-valuemax={100}
-      >
+      <StyledStarWrapper aria-valuenow={percentage} aria-valuemin={0} aria-valuemax={100}>
         <BackgroundFill percentage={percentage} />
         <StarIcon src={star} alt="Star" aria-label={starLabel} />
       </StyledStarWrapper>

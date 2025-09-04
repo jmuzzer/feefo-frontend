@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import type { RatingCount } from '../../types/WidgetRating';
+import type { RatingCount } from '../../types/ProductRatingSummary#';
 import { RatingDistributionBar } from './RatingDistributionBar';
 import greyStar from '../../assets/greyStar.svg';
 
@@ -78,9 +78,7 @@ export function RatingDistribution({
             <StarIcon src={greyStar} alt="Star" />
           </StarWrapper>
           <RatingBar aria-label="Rating distribution bar">
-            <RatingDistributionBar
-              percentage={Math.round((rating.count / totalRatings) * 100)}
-            />
+            <RatingDistributionBar percentage={Math.round((rating.count / totalRatings) * 100)} />
           </RatingBar>
           <RatingCount aria-label="Rating count">{rating.count}</RatingCount>
         </RowWrapper>

@@ -25,7 +25,7 @@ const DistributionBarContainer = styled.div`
 const DistributionFill = styled.div<DistributionFillProps>`
   background-color: #ffd700;
   height: 100%;
-  width: ${({ percentage }) => percentage}%;
+  width: ${({ percentage }) => (percentage ? percentage : 0)}%;
 `;
 
 export function RatingDistributionBar({ percentage }: DistributionBarProps) {

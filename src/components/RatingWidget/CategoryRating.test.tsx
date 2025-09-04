@@ -12,7 +12,8 @@ describe('CategoryRating', () => {
     { averageRating: 1.5, expected: 'POOR' },
     { averageRating: 2.49, expected: 'POOR' },
     { averageRating: 1.49, expected: 'BAD' },
-    { averageRating: 0, expected: 'BAD' },
+    { averageRating: 0.01, expected: 'BAD' },
+    { averageRating: 0, expected: 'UNRATED' },
   ];
 
   it.each(cases)(

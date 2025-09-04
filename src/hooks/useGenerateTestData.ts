@@ -1,4 +1,4 @@
-import type { RatingCount, ProductRatingSummary } from '../types/WidgetRating';
+import type { RatingCount, ProductRatingSummary } from '../types/ProductRatingSummary#';
 
 export function useGenerateTestData(): ProductRatingSummary {
   const ratingDistribution: Array<RatingCount> = [
@@ -19,9 +19,7 @@ export function useGenerateTestData(): ProductRatingSummary {
     0,
   );
 
-  const averageRating: number = parseFloat(
-    (totalRatingsValue / totalRatings).toFixed(1),
-  );
+  const averageRating: number = parseFloat((totalRatingsValue / totalRatings).toFixed(1));
 
   return {
     averageRating,

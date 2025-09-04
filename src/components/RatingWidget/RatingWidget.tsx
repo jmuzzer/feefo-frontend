@@ -1,6 +1,6 @@
 import feefoLogo from '../../assets/feefoLogo.png';
 import styled from 'styled-components';
-import type { ProductRatingSummary } from '../../types/WidgetRating';
+import type { ProductRatingSummary } from '../../types/ProductRatingSummary#';
 import { RatingSummary } from './RatingSummary';
 import { RatingDistribution } from './RatingDistribution';
 

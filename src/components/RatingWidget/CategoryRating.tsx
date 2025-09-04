@@ -28,13 +28,11 @@ export function CategoryRating({ averageRating }: CategoryRatingProps) {
     categoryRating = 'FAIR';
   } else if (averageRating >= 1.5) {
     categoryRating = 'POOR';
+  } else if (averageRating === 0) {
+    categoryRating = 'UNRATED';
   } else {
     categoryRating = 'BAD';
   }
 
-  return (
-    <StyledDescription aria-label="Category rating">
-      {categoryRating}
-    </StyledDescription>
-  );
+  return <StyledDescription aria-label="Category rating">{categoryRating}</StyledDescription>;
 }
